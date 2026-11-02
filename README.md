@@ -1,30 +1,31 @@
-# บันทึกกระแสเงินสด
-
-แอปเว็บสำหรับบันทึกรายรับ-รายจ่ายส่วนตัว ทำงานแบบหน้าเดียว (SPA) เก็บข้อมูลบน **Cloud Firestore** (Firebase / Google Cloud) ผูกกับบัญชี Google ของคุณ ใช้งานออฟไลน์ได้และซิงก์ขึ้นคลาวด์เองเมื่อมีอินเทอร์เน็ต ไม่ต้องมีเซิร์ฟเวอร์ของตัวเอง
+# Cash//Manager
+- แอปเว็บสำหรับบันทึกรายรับ-รายจ่ายส่วนตัว
+- ทำงานแบบหน้าเดียว (SPA) เก็บข้อมูลบน **Cloud Firestore** (Firebase / Google Cloud) ผูกกับบัญชี Google ของคุณ
+- ใช้งานออฟไลน์ได้และซิงก์ขึ้นคลาวด์เองเมื่อมีอินเทอร์เน็ต ไม่ต้องมีเซิร์ฟเวอร์ของตัวเอง
 
 > ใช้งานครั้งแรกต้องตั้งค่า Firebase ก่อน ดูขั้นตอนที่ [docs/firebase-setup.md](docs/firebase-setup.md)
 
 ## โครงสร้างไฟล์
 
 ```
-project/
-├── index.html      โครงหน้าเว็บและทุกหน้าของแอป
-├── css/
-│   └── style.css   ธีมสีและการจัดวาง
-├── js/
-│   ├── script.js          โลจิกหน้าจอทั้งหมดของแอป
-│   ├── store-boot.js      โหลด Firebase SDK และสร้างส่วนเก็บข้อมูล
-│   ├── store.js           ส่วนเก็บข้อมูล (cache + ซิงก์กับ Firestore + ย้ายข้อมูลเก่า)
-│   ├── store-core.js      ฟังก์ชันช่วยของส่วนเก็บข้อมูล (ทดสอบได้ด้วย Node)
-│   └── firebase-config.js ค่าตั้งค่าโปรเจกต์ Firebase (ต้องแก้เอง)
-├── sw.js           Service Worker เก็บไฟล์แอปไว้ใช้ตอนออฟไลน์
-├── manifest.webmanifest  ข้อมูลแอปสำหรับติดตั้งบนหน้าจอโฮม (PWA)
-├── icons/          ไอคอนแอป (สร้างด้วย scripts/make-icons.py)
-├── firestore.rules กฎความปลอดภัย: แต่ละบัญชีเห็นเฉพาะข้อมูลตัวเอง
-├── firebase.json   ตั้งค่า Firebase Emulator สำหรับทดสอบ
-├── tests/          เทสต์ (npm test / npm run test:emu)
-├── docs/firebase-setup.md  ขั้นตอนตั้งค่า Firebase
-└── README.md
+Cash-Manager/
+    ├── index.html
+    ├── css/
+    │   └── style.css   
+    ├── js/
+    │   ├── script.js          
+    │   ├── store-boot.js      
+    │   ├── store.js           
+    │   ├── store-core.js      
+    │   └── firebase-config.js 
+    ├── sw.js           
+    ├── manifest.webmanifest  
+    ├── icons/          
+    ├── firestore.rules 
+    ├── firebase.json 
+    ├── tests/          
+    ├── docs/firebase-setup.md  
+    └── README.md
 ```
 
 ## ฟีเจอร์หลัก
